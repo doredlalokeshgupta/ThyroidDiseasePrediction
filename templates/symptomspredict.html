@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Colorlib Templates">
+    <meta name="author" content="Colorlib">
+    <meta name="keywords" content="Colorlib Templates">
+
+    <!-- Title Page-->
+    <title>Symptoms Prediction</title>
+
+<!-- Icons font CSS-->
+    <link rel="stylesheet" media="all" href="{{ url_for('static',filename='vendor/mdi-font/css/material-design-iconic-font.min.css') }}">
+    <link rel="stylesheet" media="all" href="{{ url_for('static',filename='vendor/font-awesome-4.7/css/font-awesome.min.css') }}">
+    
+	
+    <!-- Vendor CSS-->
+    <link  rel="stylesheet" media="all" href="{{ url_for('static',filename='vendor/select2/select2.min.css') }}">
+    
+
+    <!-- Main CSS-->
+    <link rel="stylesheet" media="all" href="{{ url_for('static', filename='css/main3.css') }}">
+	
+	
+	<style>
+	/* Add a black background color to the top navigation */
+.topnav {
+  width:200px; 
+  height:450px;
+  overflow: hidden;
+  margin-top:20px;
+  margin-left:40px;
+  float:left;
+  background-color:#181c1a;
+  padding-top:7px;
+}
+
+a:link, a:visited {
+  background-color:#181c1a;
+  color: white;
+  padding-top: 10px; 
+  padding-bottom:10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  width:200px;
+  font-size:18px;
+}
+
+a:hover, a:active {
+  background-color: #000;
+}
+
+hr { 
+  display: block;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  margin-left: auto;
+  margin-right: auto;
+  border-style: inset;
+  border-width: 0.5px;
+}
+
+blink {
+  -webkit-animation: 2s linear infinite condemned_blink_effect; /* for Safari 4.0 - 8.0 */
+  animation: 2s linear infinite condemned_blink_effect;
+}
+
+/* for Safari 4.0 - 8.0 */
+@-webkit-keyframes condemned_blink_effect { 
+  0% {
+    visibility: hidden;
+  }
+  50% {
+    visibility: hidden;
+  }
+  100% {
+    visibility: visible;
+  }
+}
+
+@keyframes condemned_blink_effect {
+  0% {
+    visibility: hidden;
+  }
+  50% {
+    visibility: hidden;
+  }
+  100% {
+    visibility: visible;
+  }
+}
+
+img {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+</style>
+</head>
+
+<body>
+
+
+<form action="symptomspredict">
+
+<div style="height:120px;background-color:green;">
+<p style="text-align:center;font-size:70px;margin:auto;padding-top:25px;color:#c6f5dc;font-family:serif;">Thyroid Disease Prediction</p>
+</div>
+<div class="topnav">
+  <a href="/">Home</a><br><hr>
+  <a href="symptomspredict">Symptoms Predictor</a><br><hr>
+  <a href="predict2">Prediction</a><br><hr>
+  <a href="aboutus">About Us</a><br><hr>
+  <a href="contactus">Contact Us</a>
+  
+  <div style="background-color:#fff;padding-top:30px;padding-left:10px;padding-bottom:10px;">
+  <blink style="font-family:serif;font-size:20px;">Currently, about <span style="color:green;">42 million</span> Indians have some form of thyroid disease. People of all ages and races can get thyroid disease!!
+  </blink>
+  </div>
+</div>
+
+
+<div style="float:left; width:50%;">
+<div class="page-wrapper bg-blue p-t-100 p-b-100 font-robo">
+        <div class="wrapper wrapper--w680">
+            <div class="card card-1">
+                <div class="card-body">
+                    <h2 class="title">Symptoms Of Thyroid</h2>
+                     <form method="POST" >
+                    
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <div class="rs-select2 js-select-simple select--no-search">
+                                        <select id="wt" required>
+                                            <option disabled="disabled" selected="selected">Gaining/Lossing Weight</option>
+                                            <option>Yes</option>
+                                            <option>No</option>                                            
+                                        </select>
+                                        <div class="select-dropdown"></div>
+                                    </div>
+                                </div>
+                            </div>
+							<div class="col-2">
+                                <div class="input-group">
+                                    <div class="rs-select2 js-select-simple select--no-search">
+                                        <select id="ch" required="required">
+                                            <option disabled="disabled" selected="selected">Feeling Cold/Hot</option>
+                                            <option>Yes</option>
+                                            <option>No</option>                                            
+                                        </select>
+                                        <div class="select-dropdown"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+						
+						<div class="row row-space" >
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <div class="rs-select2 js-select-simple select--no-search">
+                                        <select id="hair" required="required">
+                                            <option disabled="disabled" selected="selected">Hair Loss</option>
+                                            <option>Yes</option>
+                                            <option>No</option>                                            
+                                        </select>
+                                        <div class="select-dropdown"></div>
+                                    </div>
+                                </div>
+                            </div>
+							<div class="col-2">
+                                <div class="input-group">
+                                    <div class="rs-select2 js-select-simple select--no-search">
+                                        <select id="skin" required="required">
+                                            <option disabled="disabled" selected="selected">Itchy and Dry Skin</option>
+                                            <option>Yes</option>
+                                            <option>No</option>                                            
+                                        </select>
+                                        <div class="select-dropdown"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+						
+						<div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <div class="rs-select2 js-select-simple select--no-search">
+                                        <select id="depress" required="required">
+                                            <option disabled="disabled" selected="selected">Feeling Depressed</option>
+                                            <option>Yes</option>
+                                            <option>No</option>                                            
+                                        </select>
+                                        <div class="select-dropdown"></div>
+                                    </div>
+                                </div>
+                            </div>
+							<div class="col-2">
+                                <div class="input-group">
+                                    <div class="rs-select2 js-select-simple select--no-search">
+                                        <select id="trouble" required="required">
+                                            <option disabled="disabled" selected="selected">Trouble Concentrating or Remembering</option>
+                                            <option>Yes</option>
+                                            <option>No</option>                                            
+                                        </select>
+                                        <div class="select-dropdown"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+						
+						<div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <div class="rs-select2 js-select-simple select--no-search">
+                                        <select id="constipation" required="required">
+                                            <option disabled="disabled" selected="selected">Constipation</option>
+                                            <option>Yes</option>
+                                            <option>No</option>                                            
+                                        </select>
+                                        <div class="select-dropdown"></div>
+                                    </div>
+                                </div>
+                            </div>
+							<div class="col-2">
+                                <div class="input-group">
+                                    <div class="rs-select2 js-select-simple select--no-search">
+                                        <select id="periods" required="required">
+                                            <option disabled="disabled" selected="selected">Heavy/Irregular Periods</option>
+                                            <option>Yes</option>
+                                            <option>No</option>                                            
+                                        </select>
+                                        <div class="select-dropdown"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+						
+						<div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <div class="rs-select2 js-select-simple select--no-search">
+                                        <select id="swell" required="required">
+                                            <option disabled="disabled" selected="selected">Swelling</option>
+                                            <option>Yes</option>
+                                            <option>No</option>                                            
+                                        </select>
+                                        <div class="select-dropdown"></div>
+                                    </div>
+                                </div>
+                            </div>
+							<div class="col-2">
+                                <div class="input-group">
+                                    <div class="rs-select2 js-select-simple select--no-search">
+                                        <select id="mood" required="required">
+                                            <option disabled="disabled" selected="selected">Mood Changes</option>
+                                            <option>Yes</option>
+                                            <option>No</option>                                            
+                                        </select>
+                                        <div class="select-dropdown"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+	
+	
+						
+                        
+                        <div class="p-t-20">
+                            <button class="btn btn--radius btn--green" type="button" onclick="sub()"  >Predict</button>
+                        </div>
+						
+						
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+	</div>
+	
+	<div class="card card-1" style="float:left;width:380px;margin-top:20px;height:230px;">
+                <div class="card-heading"></div>
+                <div class="card-body">
+
+<p id="demo" style="text-align:justify;color:#333232;font-size:20px;">These are some of the symptoms of Thyroid, if any of them are present it is better to consult the Doctor and go for tests which can prevent the problem soon.</p>
+<img id="perfect"></src>
+</div>
+</div>
+
+<div style="float:left;margin-top:50px;margin-left:70px;">
+<img src="static/images/wtd.jpg"/>
+</div>
+
+
+<script>
+
+	function sub(){
+
+	var e1 = document.getElementById("wt");
+	var result1 = e1.options[e1.selectedIndex].text;
+	document.getElementById("demo").innerHTML=result1;
+	
+	var e2 = document.getElementById("ch");
+	var result2 = e2.options[e2.selectedIndex].text;
+	
+	var e3 = document.getElementById("hair");
+	var result3 = e3.options[e3.selectedIndex].text;
+	
+	var e4 = document.getElementById("skin");
+	var result4 = e4.options[e4.selectedIndex].text;
+	
+	var e5 = document.getElementById("depress");
+	var result5 = e5.options[e5.selectedIndex].text;
+	
+	var e6 = document.getElementById("trouble");
+	var result6 = e6.options[e6.selectedIndex].text;
+	
+	var e7 = document.getElementById("constipation");
+	var result7 = e7.options[e7.selectedIndex].text;
+	
+	var e8 = document.getElementById("periods");
+	var result8 = e8.options[e8.selectedIndex].text;
+	
+	var e9 = document.getElementById("swell");
+	var result9 = e9.options[e9.selectedIndex].text;
+	
+	var e10 = document.getElementById("mood");
+	var result10 = e10.options[e10.selectedIndex].text;
+	
+	
+	document.getElementById("demo").style.fontFamily = "sans-serif";
+	document.getElementById("demo").style.fontSize = "large";
+	
+
+	
+
+	x="Perfectly Alright";
+	y="It seems you are having several of these symptoms or they are new, worsening or severe\nSo please go for blood tests and find out the results soon!!\nIf your thyroid hormone levels are low, a simple treatment could greatly improve your quality of life";
+	
+	if(result1==='No' && result2==='No' && result3==='No' && result4==='No' && result5==='No' && result6==='No' && result7==='No' && result8==='No' && result9==='No' && result10==='No')
+	{
+		document.getElementById("demo").style.marginLeft = "90px";
+		document.getElementById("perfect").style.marginLeft = "100px";
+		document.getElementById("perfect").style.marginTop = "10px";
+		document.getElementById("demo").innerHTML=x;
+		document.getElementById("perfect").height = "100";
+		document.getElementById("perfect").width = "100";
+		document.getElementById("perfect").src="static/images/perfect.jpg";
+		alert("Perfectly Alright :)");
+	}else{
+	document.getElementById("demo").innerHTML=y;
+	 alert("Please go for the tests..!");
+	}
+	
+	
+}
+
+</script>
+    
+	<script src="{{ url_for('static',filename='vendor/jquery/jquery.min.js') }}"></script>
+
+    <!-- Vendor JS-->
+    <script src="{{ url_for('static',filename='vendor/select2/select2.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='vendor/datepicker/moment.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='vendor/datepicker/daterangepicker.js') }}"></script>
+
+
+    <!-- Main JS-->
+    <script src="{{ url_for('static',filename='js/global.js') }}"></script>
+	
+
+
+
+  	
+		
+	
+	
+	
+	</form>
+  
+
+</body>
+
+</html>
+<!-- end document-->
+	

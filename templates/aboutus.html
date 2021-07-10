@@ -1,0 +1,141 @@
+<!Doctype>
+<html>
+<head>
+<title>Thyroid Prediction</title>
+<link href="{{ url_for('static',filename='css/main2.css') }}" rel="stylesheet" media="all">
+<style>
+/* Add a black background color to the top navigation */
+.topnav {
+  width:200px; 
+  height:450px;
+  overflow: hidden;
+  margin-top:20px;
+  margin-left:40px;
+  float:left;
+  background-color:#181c1a;
+  padding-top:7px;
+}
+
+a:link, a:visited {
+  background-color:#181c1a;
+  color: white;
+  padding-top: 10px; 
+  padding-bottom:10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  width:200px;
+  font-size:18px;
+}
+
+a:hover, a:active {
+  background-color: #000;
+}
+
+hr { 
+  display: block;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  margin-left: auto;
+  margin-right: auto;
+  border-style: inset;
+  border-width: 0.5px;
+}
+
+blink {
+  -webkit-animation: 2s linear infinite condemned_blink_effect; /* for Safari 4.0 - 8.0 */
+  animation: 2s linear infinite condemned_blink_effect;
+}
+
+/* for Safari 4.0 - 8.0 */
+@-webkit-keyframes condemned_blink_effect { 
+  0% {
+    visibility: hidden;
+  }
+  50% {
+    visibility: hidden;
+  }
+  100% {
+    visibility: visible;
+  }
+}
+
+@keyframes condemned_blink_effect {
+  0% {
+    visibility: hidden;
+  }
+  50% {
+    visibility: hidden;
+  }
+  100% {
+    visibility: visible;
+  }
+}
+ div.polaroid {
+  width: 250px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
+  font-family: cursive;
+}
+
+div.container {
+  padding: 10px;
+}
+
+
+</style>
+
+
+</head>
+<body>
+<form action="aboutus">
+<div style="height:120px;background-color:green;">
+<p style="text-align:center;font-size:70px;margin:auto;padding-top:25px;color:#c6f5dc;font-family:serif;">Thyroid Disease Prediction</p>
+</div>
+<div class="topnav">
+ <a href="/">Home</a><br><hr>
+  <a href="symptomspredict">Symptoms Predictor</a><br><hr>
+  <a href="predict2">Prediction</a><br><hr>
+  <a href="aboutus">About Us</a><br><hr>
+  <a href="contactus">Contact Us</a>
+   
+  <div style="background-color:#fff;padding-top:30px;padding-left:10px;padding-bottom:10px;">
+  <blink style="font-size:20px;font-family:serif;">Currently, about <span style="color:green;">42 million</span> Indians have some form of thyroid disease. People of all ages and races can get thyroid disease!!
+  </blink>
+  </div>
+</div>
+
+<div style="width:700px;height:500px;float:left;">
+<div class="page-wrapper bg-blue p-t-100 p-b-100 font-robo" style="margin-left:20px;">
+        <div class="wrapper wrapper--w680">
+            <div class="card card-1">
+                <div class="card-body">
+				<h2 class="title">About Us</h2>
+				<p style="font-size:22px;font-family:candara;color:green;padding:10px;">Thyroid Disease Prediction website is free for everyone</p>
+				<p style="padding:10px;">our website is created with an inspiration of finding the Thyroid disease</p>
+				<p style="font-size:22px;font-family:candara;color:green;padding:10px;">Website contains Symptoms Predictor</p>
+				<p style="padding:10px;">which is useful for finding symptoms first</p>
+				<p style="font-size:22px;color:green;font-family:candara;padding:10px;">Website contains Medical Info</p>
+				<p style="padding:10px;">From the data, we determine the type of thyroid and provide medicine according to that with certain diet plan</p>
+				<br>
+				<p style="padding:10px;font-size:17px;color:green;"><b>Thank you for being part of our website :)</b></p>
+
+				
+				</div>
+			</div>
+		</div>
+</div>
+</div>
+<div class="polaroid" style="float:left;margin-left:50px;margin-top:150px;">
+  <img src="static\images\img4.jpg" width=250px height=200px/>
+  <div class="container">
+    <p>"Focus on making yourself better, not on thinking that you have only problems"</p>
+  </div>
+</div>
+
+
+
+</form>
+</body>
+</html>
+

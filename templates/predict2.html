@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Colorlib Templates">
+    <meta name="author" content="Colorlib">
+    <meta name="keywords" content="Colorlib Templates">
+
+    <!-- Title Page-->
+    <title>Thyroid Prediction</title>
+
+    <!-- Icons font CSS-->
+    <link rel="stylesheet" media="all" href="{{ url_for('static',filename='vendor/mdi-font/css/material-design-iconic-font.min.css') }}">
+    <link rel="stylesheet" media="all" href="{{ url_for('static',filename='vendor/font-awesome-4.7/css/font-awesome.min.css') }}">
+    
+	
+    <!-- Vendor CSS-->
+    <link  rel="stylesheet" media="all" href="{{ url_for('static',filename='vendor/select2/select2.min.css') }}">
+    
+
+    <!-- Main CSS-->
+    <link rel="stylesheet" media="all" href="{{ url_for('static', filename='css/main.css') }}">
+
+	
+	<style>
+	/* Add a black background color to the top navigation */
+.topnav {
+  width:200px; 
+  height:450px;
+  overflow: hidden;
+  margin-top:20px;
+  margin-left:40px;
+  float:left;
+  background-color:#181c1a;
+  padding-top:7px;
+}
+
+a:link, a:visited {
+  background-color:#181c1a;
+  color: white;
+  padding-top: 10px; 
+  padding-bottom:10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  width:200px;
+  font-size:18px;
+}
+
+a:hover, a:active {
+  background-color: #000;
+}
+
+hr { 
+  display: block;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  margin-left: auto;
+  margin-right: auto;
+  border-style: inset;
+  border-width: 0.5px;
+}
+
+blink {
+  -webkit-animation: 2s linear infinite condemned_blink_effect; /* for Safari 4.0 - 8.0 */
+  animation: 2s linear infinite condemned_blink_effect;
+}
+
+/* for Safari 4.0 - 8.0 */
+@-webkit-keyframes condemned_blink_effect { 
+  0% {
+    visibility: hidden;
+  }
+  50% {
+    visibility: hidden;
+  }
+  100% {
+    visibility: visible;
+  }
+}
+
+@keyframes condemned_blink_effect {
+  0% {
+    visibility: hidden;
+  }
+  50% {
+    visibility: hidden;
+  }
+  100% {
+    visibility: visible;
+  }
+}
+
+#lab {
+  color: #000;
+  text-align: center;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #00ff00, 0 0 40px #00ff00, 0 0 50px #00ff00, 0 0 60px #00ff00, 0 0 70px #00ff00;
+  }
+  
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+  }
+}
+
+
+
+</style>
+</head>
+
+<body>
+
+
+
+
+<div style="height:120px;background-color:green;">
+<p style="text-align:center;font-size:70px;margin:auto;padding-top:25px;color:#c6f5dc;font-family:serif;">Thyroid Disease Prediction</p>
+</div>
+<div class="topnav">
+  
+  <a href="/">Home</a><br><hr>
+  <a href="symptomspredict">Symptoms Predictor</a><br><hr>
+  <a href="{{url_for('predict2') }}">Prediction</a><br><hr>
+  <a href="aboutus">About Us</a><br><hr>
+  <a href="contactus">Contact Us</a>
+  
+  <div style="background-color:#fff;padding-top:30px;padding-left:10px;padding-bottom:10px;">
+  <blink style="font-family:serif;font-size:20px;">Currently, about <span style="color:green;">42 million</span> Indians have some form of thyroid disease. People of all ages and races can get thyroid disease!!
+  </blink>
+  </div>
+</div>
+
+
+<div style="float:left; width:50%;">
+<div class="page-wrapper bg-blue p-t-100 p-b-100 font-robo">
+        <div class="wrapper wrapper--w680">
+            <div class="card card-1">
+                <div class="card-body">
+                    <h2 class="title">Thyroid Prediction</h2>
+
+					<form action="{{ url_for('predict')}}"method="post">
+
+					<div class="input-group">
+                            <input class="input--style-1" type="text" placeholder="NAME" name="name" required="required">
+                        </div>
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <input class="input--style-1 "type="number" placeholder="AGE" name="age" required="required">
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <div class="rs-select2 js-select-simple select--no-search">
+                                        <select name="gender">
+                                            <option disabled="disabled" selected="selected">GENDER</option>
+                                            <option>Male</option>
+                                            <option>Female</option>                                            
+                                        </select>
+                                        <div class="select-dropdown"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+						<div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <input class="input--style-1 "type="number" placeholder="On_Thyroxine[0/1]" name="onthyroxine" min="0" max="1" required="required">
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <input class="input--style-1 "type="number" placeholder="Query_Hypothyroid[0/1]" name="query_hypo" min="0" max="1" required="required">
+                                </div>
+                            </div>
+                            
+                        </div>
+						
+						<div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <input class="input--style-1 "type="number" placeholder="TSH [0-1]" name="tsh" min="0.0" max="0.53" step="0.00000001"required="required">
+                                </div>
+                            </div>
+							<div class="col-2">
+                                <div class="input-group">
+                                    <input class="input--style-1 "type="number" placeholder="T3 [0-1]" name="t3" min="0.0005" max="0.18" step="0.00000001" required="required">
+                                </div>
+                            </div>
+                        </div>
+						
+						<div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <input class="input--style-1 "type="number" placeholder="TT4 [0-1]" name="tt4" min="0.0020" max="0.6" step="0.00000001" required="required">
+                                </div>
+                            </div>
+							<div class="col-2">
+                                <div class="input-group">
+                                    <input class="input--style-1 "type="number" placeholder="FTI [0-1]" name="fti" min="0.0020" max="0.642" step="0.00000001" required="required">
+                                </div>
+                            </div>
+                        </div>
+
+
+						
+                        
+                        <div class="p-t-20">
+                            <button class="btn btn--radius btn--green" >Predict</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div></div>
+	
+	
+<div class="card card-1" style="float:left;width:380px;margin-top:20px;height:700px;">
+                <div class="card-heading"></div>
+                <div class="card-body">
+				
+				<img src="static\images\images1.png"style="width:200px;height:150px">
+				<label id="lab" style="float:right;"><b>{{ prediction_text }}</b> </label>
+				 <p id="demo"></p>
+				 
+				 <img id="myImg"  style="margin-left:50px;"/>
+				 <p id="demo2"></p>
+            
+
+</div>
+</div>
+
+
+
+
+<script src="{{ url_for('static',filename='vendor/jquery/jquery.min.js') }}"></script>
+
+    <!-- Vendor JS-->
+    <script src="{{ url_for('static',filename='vendor/select2/select2.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='vendor/datepicker/moment.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='vendor/datepicker/daterangepicker.js') }}"></script>
+
+
+    <!-- Main JS-->
+    <script src="{{ url_for('static',filename='js/global.js') }}"></script>
+	
+	
+	<!-- Output Comparision -->
+	<script> 
+	var el = document.getElementById('lab');
+	text = (el.innerText || el.textContent);
+	if(text==='Hyper Thyroidism'){
+	 
+	  t="Methimazole (also knwn as Tapezole ) or Propylthiouracil (PTU)"+"<br><b>"+ "Treatment -- "+"<br></b>"+ ">Radio active Iodine"+"<br>"+ ">Anti-Thyroid Medications"+"<br>"+ ">Beta Blockers "+"<br>"+ ">Surgery : incase you can't control thyroid levels by using medicine";
+	 document.getElementById("demo").innerHTML=t;
+	document.getElementById("myImg").src="static/images/img5.jpg";
+	 t2 ="<b>"+"DIET --"+"<br></b><b>"+"AVOID ::"+"<br></b>"+ "> Too much seaweeds"+"<br>"+"> Transfats like hydrogenated vegetable oil"+"<br>"+"> Potential allergens like soy,chemical food ,corn..."+"<br>"+"> Sugar, caffeine and refined carbohydrates"+"<br><b>"+"INCLUDE ::"+"</b><br>"+"> Cruciferous vegetables like cabbage, broccoli.."+"<br>"+"> Calicium rich foods like almonods, parsley.."+"<br>"+"> Root vegetables "+"<br>"+"> Flax seeds,lemon balm"
+	document.getElementById("demo2").innerHTML=t2;
+	}
+	else if(text ==='Hypo Thyroidism'){
+	  t="Hypo : Levothyroxine sodium tablets (aka Synthroid)"+"<br><b>"+"Treatment --"+"</b><br>"+"> Standard treatment for hypo thyroidsm involves daily use of Synthroid tabletsThis oral medication restores adequate harmone levels, reversing the signs and symptoms of hypo thyroidsm"
+		 document.getElementById("demo").innerHTML=t;
+		 document.getElementById("myImg").src="static/images/img5.jpg";
+		 t2="<b>"+"DIET -- "+"<br></b><b>"+"AVOID::"+"</b><br>"+"> A sugary diet , caffeine and refined carbohydrates"+"<br>"+"> Energy bars, sopy products and GMO foods"+"<br>"+"> Gluten"+"<br><b>"+"INCLUDE :: "+"<br></b>"+"> Whole grain based carbohydrates"+"<br>"+"> Protien rich foods like fish,eggs,nuts...etc"+"<br>"+"> Healthy fat foods like oily fish, avacada, olive oil...."
+		 document.getElementById("demo2").innerHTML=t2;
+
+	}
+	else if(text ==='Normal'){
+	 document.getElementById("myImg").src="static/images/img2.png";
+	}
+	else{
+	console.log("Please enter valid data");
+	}
+	
+	</script>
+	
+	
+	
+	
+	
+	
+	
+  
+
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+
+</html>
+<!-- end document-->
+	
