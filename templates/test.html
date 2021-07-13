@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+input[type=number], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+input[type=submit] {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+  
+}
+
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .col-25, .col-75, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+</style>
+</head>
+<body class="white">
+
+<center><h1 style="color:green">Thyroid Disease Prediction</h1></center>
+<div class="container center" >
+<div class="content">
+  <form action="/predict" method="POST">
+    <div class="row">
+      <div class="col-25">
+        <label for="name">NAME</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="name" name="name" placeholder="Your name..">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="age">AGE</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="age" name="age" placeholder="Your age..">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="genderr">GENDER</label>
+      </div>
+      <div class="col-75">
+        <select id="gender" name="gender">
+		  <option disabled="disabled" selected="selected">GENDER</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+        </select>
+      </div>
+    </div>
+	
+	
+    <div class="row">
+      <div class="col-25">
+        <label for="onthyroxine">On_Thyroxine[0/1]</label>
+      </div>
+	  
+      <div class="col-75">
+        <input type="number" id="onthyroxine" name="onthyroxine" min="0" max="1" required="required" placeholder="Enter Thyroxine..">
+      </div>
+    </div>
+	
+	
+    <div class="row">
+      <div class="col-25">
+        <label for="hypothyroid">Query_Hypothyroid[0/1]</label>
+      </div>
+	  
+      <div class="col-75">
+        <input type="number" id="hypothyroid" name="query_hypo" min="0" max="1" required="required"   placeholder="Enter Hypothyroid..">
+      </div>
+    </div>
+	
+	
+    <div class="row">
+      <div class="col-25">
+        <label for="tsh">TSH [0-1]</label>
+      </div>
+	  
+      <div class="col-75">
+        <input type="number" min="0.0" max="0.53" step="0.00000001" id="tsh" name="tsh" placeholder="TSH [0-1]..">
+      </div>
+    </div>
+	
+	
+    <div class="row">
+      <div class="col-25">
+        <label for="t3">T3 [0-1]</label>
+      </div>
+	  
+      <div class="col-75">
+        <input type="number" min="0.0005" max="0.18" step="0.00000001" id="t3" name="t3" placeholder="T3 [0-1]..">
+      </div>
+    </div>
+	
+	
+    <div class="row">
+      <div class="col-25">
+        <label for="tt4">TT4 [0-1]</label>
+      </div>
+      <div class="col-75">
+        <input type="number" min="0.0020" max="0.6" step="0.00000001" id="tt4" name="tt4" placeholder="TT4 [0-1]..">
+      </div>
+    </div>
+	
+	
+    <div class="row">
+      <div class="col-25">
+        <label for="fti">FTI [0-1]</label>
+      </div>
+	  
+      <div class="col-75">
+        <input type="number" min="0.0020" max="0.642" step="0.00000001" id="fti" name="fti" placeholder="FTI [0-1]..">
+      </div>
+    </div>
+	<br>
+	<div>
+		<div class="row">
+			<input type="submit" value="Predict">
+		</div>
+	</div>
+	
+  </form>
+  {% if prediction_text %}
+    <h2><center style="color:red"><p>{{ prediction_text }}</p></center></h2>
+  {% endif %}
+</div>
+
+</div>
+
+</body>
+</html>

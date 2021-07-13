@@ -21,36 +21,23 @@ model = pickle.load(open('model.pkl', 'rb'))
 
 @app.route('/')
 def inddex():
-    return render_template('home.html')
-@app.route('/symptomspredict',methods=["POST","GET"])
-def symptomspredict():
-    return render_template('symptomspredict.html')
-@app.route('/predict2')
-def predict2():
-    return render_template('predict2.html')
-@app.route('/contactus')
-def contactus():
-    return render_template('contactus.html')
-@app.route('/aboutus')
-def aboutus():
-    return render_template('aboutus.html')
-
+    return render_template('test.html')
 
 @app.route('/predict',methods=['POST'])
 def predict():
     '''
     For rendering results on HTML GUI
     '''
-    
+
     name=request.form['name']
     """int_features = [float(x) for x in request.form.values()]
     #print(int_features)
     final_features = [np.array(int_features)]
     prediction = model.predict(final_features)"""
-    
-    
+
+
     int_features=[]
-    
+
    # age=request.form['age']
     #gender=request.form['gender']
     onthyroxine=request.form['onthyroxine']
@@ -59,17 +46,17 @@ def predict():
     t3=request.form['t3']
     tt4=request.form['tt4']
     fti=request.form['fti']
-    
+
     int_features.append(onthyroxine)
     int_features.append(query_hypo)
     int_features.append(tsh)
     int_features.append(t3)
     int_features.append(tt4)
     int_features.append(fti)
-    
+
     print(int_features)
 
-    
+
     final_features = [np.array(int_features)]
     prediction = model.predict(final_features)
 
@@ -85,7 +72,7 @@ def predict():
     else:
         output="Please provide valid data..!"
     print(type(output))
-    return render_template('predict2.html', prediction_text=output)
+    return render_template('test.html', prediction_text=output)
     #return render_template('index.html', prediction_text=name+' condition is '+output)
 
 @app.route('/predict_api',methods=['POST'])
