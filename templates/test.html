@@ -80,6 +80,9 @@ input[type=submit]:hover {
 <body class="white">
 
 <center><h1 style="color:green">Thyroid Disease Prediction</h1></center>
+{% if prediction_text %}
+    <h2><center style="color:red"><p>{{ prediction_text }}</p></center></h2>
+  {% endif %}
 <div class="container center" >
 <div class="content">
   <form action="/predict" method="POST">
@@ -119,7 +122,7 @@ input[type=submit]:hover {
       </div>
 	  
       <div class="col-75">
-        <input type="number" id="onthyroxine" name="onthyroxine" min="0" max="1" required="required" placeholder="Enter Thyroxine..">
+        <input type="number" id="onthyroxine" name="onthyroxine" min="0" max="1" required="required" placeholder="Enter On_Thyroxine..">
       </div>
     </div>
 	
@@ -130,50 +133,50 @@ input[type=submit]:hover {
       </div>
 	  
       <div class="col-75">
-        <input type="number" id="hypothyroid" name="query_hypo" min="0" max="1" required="required"   placeholder="Enter Hypothyroid..">
+        <input type="number" id="hypothyroid" name="query_hypo" min="0" max="1" required="required"   placeholder="Enter Query_Hypothyroid..">
       </div>
     </div>
 	
 	
     <div class="row">
       <div class="col-25">
-        <label for="tsh">TSH [0-1]</label>
+        <label for="tsh">TSH </label>
       </div>
 	  
       <div class="col-75">
-        <input type="number" min="0.0" max="0.53" step="0.00000001" id="tsh" name="tsh" placeholder="TSH [0-1]..">
+        <input type="number" min="0.0" max="0.53" step="0.00000001" id="tsh" name="tsh" placeholder="TSH [0-0.53]..">
       </div>
     </div>
 	
 	
     <div class="row">
       <div class="col-25">
-        <label for="t3">T3 [0-1]</label>
+        <label for="t3">T3 </label>
       </div>
 	  
       <div class="col-75">
-        <input type="number" min="0.0005" max="0.18" step="0.00000001" id="t3" name="t3" placeholder="T3 [0-1]..">
+        <input type="number" min="0.0005" max="0.18" step="0.00000001" id="t3" name="t3" placeholder="T3 [0-0.18]..">
       </div>
     </div>
 	
 	
     <div class="row">
       <div class="col-25">
-        <label for="tt4">TT4 [0-1]</label>
+        <label for="tt4">TT4 </label>
       </div>
       <div class="col-75">
-        <input type="number" min="0.0020" max="0.6" step="0.00000001" id="tt4" name="tt4" placeholder="TT4 [0-1]..">
+        <input type="number" min="0.0020" max="0.6" step="0.00000001" id="tt4" name="tt4" placeholder="TT4 [0-0.6]..">
       </div>
     </div>
 	
 	
     <div class="row">
       <div class="col-25">
-        <label for="fti">FTI [0-1]</label>
+        <label for="fti">FTI </label>
       </div>
 	  
       <div class="col-75">
-        <input type="number" min="0.0020" max="0.642" step="0.00000001" id="fti" name="fti" placeholder="FTI [0-1]..">
+        <input type="number" min="0.0020" max="0.642" step="0.00000001" id="fti" name="fti" placeholder="FTI [0-0.642]..">
       </div>
     </div>
 	<br>
@@ -184,9 +187,7 @@ input[type=submit]:hover {
 	</div>
 	
   </form>
-  {% if prediction_text %}
-    <h2><center style="color:red"><p>{{ prediction_text }}</p></center></h2>
-  {% endif %}
+  
 </div>
 
 </div>
